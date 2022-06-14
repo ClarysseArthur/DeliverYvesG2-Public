@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Deliveryves G2 - PI</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/CSS/normalize.css">
+    <link rel="stylesheet" href="/CSS/pi.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/IMG/deliveryves32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/IMG/deliveryves16.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <script src="/JS/pi.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <img class="dy_logo" src="/IMG/deliveryves_logo.png" alt="Logo of deliveryves">
+        <div class="navigator">
+            <a class="navigator_item" href="/Mobile/index.html">Bottle detector</a>
+            <a class="navigator_item" href="/PI/index.html">Bottle crate overview</a>
+        </div>
+    </div>
+    <p style="display: none;" class="title">Bottle crate overview</p>
+    <div class="wrapper">
+    <div class="loader">
+        <lottie-player class="loading_animation" src="https://assets8.lottiefiles.com/packages/lf20_v0as7xar.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+      <p class="loader-info">Fetching data...</p>
+    </div>
+    </div>
+    <div class="crate_table_container">
+        <table class="crate_table">
+            <thead>
+                <th onclick="filterData(this)"><div class="table_header">Customer</div></th>
+                <th onclick="filterData(this)"><div class="table_header">Crate ID</div></th>
+                <th onclick="filterData(this)"><div class="table_header">Full Bottles</div></th>
+                <th onclick="filterData(this)"><div class="table_header">Empty Bottles</div></th>
+                <th onclick="filterData(this)"><div class="table_header">Total Bottles</div></th>
+                <th onclick="filterData(this)"><div class="table_header">Status</div></th>
+                <!-- <th onclick="filterData(this)"><div class="table_header">Status<svg class="arrow_table" xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M12 15.4 6 9.4 7.4 8 12 12.6 16.6 8 18 9.4Z"/></svg></div></th> -->
+                </thead>
+            <tbody class="js-crate_table">
+                <tr>
+                    <td data-label="Customer">Jarne Demoen</td>
+                    <td data-label="Full_Bottles">4</td>
+                    <td data-label="Empty_Bottles">16</td>
+                    <td data-label="Empty_Bottles">16</td>
+                    <td data-label="Total_Bottles">20</td>
+                    <td data-label="Status"><div class="crate_table_status refill_needed"></div></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="legend">
+            <div class="legend_symbol no_refill_needed"></div>
+            <p class="legend_expl">No refill needed</p>
+            <div class="legend_symbol consider_refill"></div>
+            <p class="legend_expl">Consider a refill</p>
+            <div class="legend_symbol refill_needed"></div>
+            <p class="legend_expl">Refill needed</p>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_links">
+          <a class="footer_link" href="https://deliveryves.be/privacy-policy/" target="_blank">Privacy Policy</a>
+          <a class="footer_link" href="https://deliveryves.be/algemene-voorwaarden/" target="_blank">Terms And Conditions</a>
+        <div class="footer_end">DeliverYves 2022</div>
+        </div>
+    </div>
+</body>
+
+</html>

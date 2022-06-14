@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Deliveryves G2 - Upload photo</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <link rel="stylesheet" href="/CSS/normalize.css">
+    <link rel="stylesheet" href="/CSS/mobile.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/IMG/deliveryves32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/IMG/deliveryves16.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="/JS/upload.js"></script>
+    <script src="/JS/datahandler.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img class="dy_logo" src="/IMG/deliveryves_logo.png" alt="Logo of deliveryves">
+        <div class="navigator">
+            <a class="navigator_item" href="/Mobile/index.html">Bottle detector</a>
+            <a class="navigator_item" href="/PI/index.html">Bottle crate overview</a>
+        </div>
+    </div>
+    <p class="title">Bottle detector</p>
+    <div class="wrapper">
+        <div class="loader">
+            <lottie-player class="loading_animation" src="https://assets8.lottiefiles.com/packages/lf20_v0as7xar.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+          <p class="loader-info">Processing image...</p>
+        </div>
+          <div class="back-arrow-container">
+            <img onclick="refresh()" class="back-arrow" src="/IMG/left-arrow.png" alt="">
+          </div>
+          <div class="content">
+              <div class="result-img-div">
+                <img class="result-img" style="max-width: 100%;" src="/IMG/example_image.png" alt="example result">
+              </div>
+              <div class="table_container">
+                <table class="table">
+                    <thead>
+                        <th>CrateID</th>
+                        <th>Full Bottles</th>
+                        <th>Empty Bottles</th>
+                        <th>Total Bottles</th>
+                        <th>Accuracy</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="CrateID">1</td>
+                            <td data-label="Full_Bottles">10</td>
+                            <td data-label="Empty_Bottles">14</td>
+                            <td data-label="Total_Bottles">24</td>
+                            <td data-label="Accuracy">75%</td>
+                        </tr>
+                        <tr>
+                            <td data-label="CrateID">2</td>
+                            <td data-label="Full_Bottles">18</td>
+                            <td data-label="Empty_Bottles">2</td>
+                            <td data-label="Total_Bottles">20</td>
+                            <td data-label="Accuracy">71%</td>
+                        </tr>
+                        <tr>
+                            <td data-label="CrateID">3</td>
+                            <td data-label="Full_Bottles">10</td>
+                            <td data-label="Empty_Bottles">14</td>
+                            <td data-label="Total_Bottles">24</td>
+                            <td data-label="Accuracy">23%</td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+          </div>
+    <div id="drop-area">
+        <form class="dashed_drag_and_drop">
+          <p>Upload file</p>
+          <input type="file" id="upfile" multiple accept="image/*" onchange="previewFile(this.files)">
+          <svg class="cancel" onclick="cancelFile()" xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M8.4 17 12 13.4 15.6 17 17 15.6 13.4 12 17 8.4 15.6 7 12 10.6 8.4 7 7 8.4 10.6 12 7 15.6ZM12 22Q9.925 22 8.1 21.212Q6.275 20.425 4.925 19.075Q3.575 17.725 2.788 15.9Q2 14.075 2 12Q2 9.925 2.788 8.1Q3.575 6.275 4.925 4.925Q6.275 3.575 8.1 2.787Q9.925 2 12 2Q14.075 2 15.9 2.787Q17.725 3.575 19.075 4.925Q20.425 6.275 21.212 8.1Q22 9.925 22 12Q22 14.075 21.212 15.9Q20.425 17.725 19.075 19.075Q17.725 20.425 15.9 21.212Q14.075 22 12 22ZM12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12Q12 12 12 12ZM12 20Q15.325 20 17.663 17.663Q20 15.325 20 12Q20 8.675 17.663 6.337Q15.325 4 12 4Q8.675 4 6.338 6.337Q4 8.675 4 12Q4 15.325 6.338 17.663Q8.675 20 12 20Z"/></svg>
+          <svg class="upload-svg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 312.602 312.602" style="enable-background:new 0 0 312.602 312.602;" xml:space="preserve">
+                <path style="fill:#54595F;" d="M251.52,137.244c-3.966,0-7.889,0.38-11.738,1.134c-1.756-47.268-40.758-85.181-88.448-85.181
+                c-43.856,0-80.964,32.449-87.474,75.106C28.501,129.167,0,158.201,0,193.764c0,36.106,29.374,65.48,65.48,65.48h54.782
+                c4.143,0,7.5-3.357,7.5-7.5c0-4.143-3.357-7.5-7.5-7.5H65.48c-27.835,0-50.48-22.645-50.48-50.48c0-27.835,22.646-50.48,50.48-50.48
+                c1.367,0,2.813,0.067,4.419,0.206l7.6,0.658l0.529-7.61c2.661-38.322,34.861-68.341,73.306-68.341
+                c40.533,0,73.51,32.977,73.51,73.51c0,1.863-0.089,3.855-0.272,6.088l-0.983,11.968l11.186-4.367
+                c5.356-2.091,10.99-3.151,16.747-3.151c25.409,0,46.081,20.672,46.081,46.081c0,25.408-20.672,46.08-46.081,46.08
+                c-0.668,0-20.608-0.04-40.467-0.08c-19.714-0.04-39.347-0.08-39.999-0.08c-4.668,0-7.108-2.248-7.254-6.681v-80.959l8.139,9.667
+                c2.667,3.17,7.399,3.576,10.567,0.907c3.169-2.667,3.575-7.398,0.907-10.567l-18.037-21.427c-2.272-2.699-5.537-4.247-8.958-4.247
+                c-3.421,0-6.686,1.548-8.957,4.247l-18.037,21.427c-2.668,3.169-2.262,7.9,0.907,10.567c1.407,1.185,3.121,1.763,4.826,1.763
+                c2.137,0,4.258-0.908,5.741-2.67l7.901-9.386v80.751c0,8.686,5.927,21.607,22.254,21.607c0.652,0,20.27,0.04,39.968,0.079
+                c19.874,0.041,39.829,0.081,40.498,0.081c33.681,0,61.081-27.4,61.081-61.08C312.602,164.644,285.201,137.244,251.52,137.244z"/>
+            </svg>
+            <div class="gallery_container">
+                <div id="gallery"></div>
+            </div>
+            <div class="upload-container">
+                <!-- <p class="upload-expl-title">Drag & drop </p>
+                <span class="upload-expl">your file here, or </span><span onclick="getFile()" for="fileElem" id="upload_btn" class="browse">browse</span> -->
+                <!-- <div onclick="getFile()" for="fileElem" id="upload_btn" class="browse_button">Browse</div> -->
+                <!-- <div class="submit_btn" onclick="upload()">
+                    Submit
+                </div> -->
+            </div>
+        </form>
+    </div>
+    </div>
+      <div class="footer">
+          <div class="footer_links">
+            <a class="footer_link" href="https://deliveryves.be/privacy-policy/" target="_blank">Privacy Policy</a>
+            <a class="footer_link" href="https://deliveryves.be/algemene-voorwaarden/" target="_blank">Terms And Conditions</a>
+          <div class="footer_end">DeliverYves 2022</div>
+          </div>
+      </div>
+</body>
+</html>

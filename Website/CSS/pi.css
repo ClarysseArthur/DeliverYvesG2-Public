@@ -1,0 +1,267 @@
+html{
+    font-size: 100%;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    --abzg: #0084A4;
+    --grey: #54595F;
+    --yellow: #f5b315;
+    --footer: #00363f;
+    --consumed:#FFA500;
+    --consumed_alpha:#FFA500;
+    --consumed_alpha: rgba(255,165,0,0.75);
+    --plenty: #119627;
+    --plenty_alpha: rgba(17,150,39,0.75); 
+    --refill: #FF0000;
+    --refill_alpha: rgba(255,0,0,0.75);
+    --white-accent: #FFF9F4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* background-image: url(/SVG/Background.svg);  */
+    color: var(--grey);
+}
+
+/* Scrollbar */
+
+tbody::-webkit-scrollbar {
+    width: 12px;  
+}
+  
+tbody::-webkit-scrollbar-track {
+    background: #d6e1e3;       
+}
+
+tbody::-webkit-scrollbar-thumb {
+    background-color: var(--abzg);  
+    border-radius: 8px;            
+}
+
+/* Header */
+
+.dy_logo{
+    height: 24px;
+}
+
+.current_page:hover{
+    /* color: var(--abzg); */
+    animation: fadeToColor .5s;
+    color: var(--abzg);
+}
+
+.header{
+    margin: 24px 0 0 24px;
+    display: flex;
+    align-items: center;
+}
+
+.navigator{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.navigator_item{
+    text-decoration: none;
+    position: relative;
+    margin-right: 24px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--grey);
+}
+
+/* Table */
+table tbody, table thead
+{
+    display: block;
+}
+table tbody 
+{
+   overflow: auto;
+   height: calc( 100vh - 96px - 80px - 48px - 40px);
+}
+th
+{
+    width: 500px;
+}
+td
+{
+    width: 500px;
+    font-size: 12px;
+}
+
+.table_header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.arrow_down{
+    fill: white;
+}
+
+.arrow_up{
+    fill: white;
+    transform: rotate(180deg);
+}
+
+.crate_table_container{
+    margin: 48px auto;
+    width: 71%;
+    /* display: flex; */
+    transform: translateX(76.67px);
+    display: none;
+}
+
+.crate_table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.crate_table tr{
+    background-color: #d6e1e3;
+    height: 40px;
+}
+
+.crate_table tbody tr:nth-child(even){
+    background-color: white;
+}
+
+.crate_table th{
+    background-color: var(--abzg);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    height: 32px;
+    
+}
+
+.crate_table tr td, .crate_table th{
+    text-align: center;
+}
+
+.crate_table tr td:first-child{
+    padding-left: 32px;
+    text-align: start;
+}
+
+.crate_table th:first-child{
+    padding-left: 32px;
+    text-align: start;
+}
+
+.crate_table tr td:nth-child(5){
+    transform: translateX(5px);
+}
+
+.crate_table tr td:nth-child(4){
+    transform: translateX(5px);
+}
+
+.crate_table tr td:nth-child(2){
+    transform: translateX(-9px);
+}
+
+.crate_table_status{
+    width: 12px;
+    height: 12px;
+    border-radius: 25px;
+    margin: auto;
+    transform: translateX(15px);
+}
+
+.no_refill_needed{
+    background-color: var(--plenty);
+}
+
+.consider_refill{
+    background-color: var(--consumed);
+}
+
+.refill_needed{
+    background-color: var(--refill);
+}
+
+/* Legende */
+.legend{
+    display: grid;
+    grid-template-areas: 'expl symbol';
+    height: 10px;
+    width: 150px;
+    margin-left: 32px;
+}
+
+.legend_expl{
+    text-align: start;
+    font-size: 12px;
+    color: var(--grey);
+}
+
+.legend_symbol{
+    width: 12px;
+    height: 12px;
+    border-radius: 25px;
+    text-align: center;
+    margin: auto;
+    margin-right: 16px;
+}
+
+.wrapper{
+    min-height: calc(100vh - 48px - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-info{
+    text-align: center;
+    transform: translateY(-50px);
+}
+
+/* Footer */
+.footer{
+    background-color: var(--footer);
+    position: relative;
+    width: 100%;
+    font-weight: 400;
+    height: 80px;
+    position: absolute;
+    bottom: 0;   
+}
+
+.footer_links{
+    display: flex;
+    margin-left: 48px;
+    height: 100%;
+    align-items: center;
+}
+
+.footer_link{
+    color: var(--yellow);
+    text-decoration: none;
+    margin-right: 16px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.footer_end{
+    color: white;
+    align-items: center;
+    position: absolute;
+    right: 48px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* Media Queries */
+
+@media(max-width: 1150px){
+    .crate_table th{
+        font-size: 12px;
+        font-weight: 500
+    }
+    .legend_expl{
+        font-size: 10px;
+    }
+}
